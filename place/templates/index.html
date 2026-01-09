@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Preferences</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'index.css' %}">
+
+</head>
+<body>
+    <div>
+        <h1>Welcome to Our Page</h1>
+        <form id="prefForm">
+            <label>Budget:</label>
+            <input type="number" id="budget" required><br>
+            
+            <label>Food Preference:</label>
+            <select id="food">
+                <option value="veg">Vegetarian</option>
+                <option value="non-veg">Non-Vegetarian</option>
+                <option value="both">Both</option>
+            </select><br>
+
+            <label>Number of People:</label>
+            <input type="number" id="people" required><br>
+
+            <label>Preferred Location:</label>
+            <input type="text" id="location"><br>
+
+            <label>Vibe:</label>
+            <select id="vibe">
+                <option value="quiet">Quiet</option>
+                <option value="romantic">Romantic</option>
+                <option value="family">Family</option>
+                <option value="lively">Lively</option>
+            </select><br>
+
+            <label>Cuisine:</label>
+            <input type="text" id="cuisine"><br>
+
+            <label>Extra Preferences:</label>
+            <textarea id="extra"></textarea><br>
+
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("prefForm").addEventListener("submit", function(e){
+            e.preventDefault();
+
+            const data = {
+                budget: document.getElementById("budget").value,
+                food: document.getElementById("food").value,
+                people: document.getElementById("people").value,
+                location: document.getElementById("location").value,
+                vibe: document.getElementById("vibe").value,
+                cuisine: document.getElementById("cuisine").value,
+                extra: document.getElementById("extra").value
+            };
+
+            fetch("/preferences/save/", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+            .then(res => res.json())
+            .then(res => alert(res.message))
+            .catch(err => alert("Error saving data!"));
+        });
+    </script>
+</body>
+</html>

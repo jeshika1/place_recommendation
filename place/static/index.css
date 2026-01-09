@@ -1,0 +1,84 @@
+/* Center everything vertically and horizontally */
+body {
+    font-family: Arial, sans-serif;
+    background: #f0f2f5;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;  /* centers horizontally */
+    align-items: center;      /* centers vertically */
+    height: 100vh;            /* full viewport height */
+}
+
+/* Box style */
+.form-box {
+    background: #fff;              /* white box */
+    padding: 30px 40px;            /* inside spacing */
+    border-radius: 12px;           /* rounded corners */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15); /* shadow */
+    width: 400px;                  /* fixed width */
+    max-width: 90%;                /* responsive */
+    text-align: center;             /* center headings */
+}
+
+/* Headings */
+h1 {
+    margin-bottom: 10px;
+    color: #333;
+}
+
+p {
+    margin-bottom: 20px;
+    color: #555;
+}
+
+/* Form fields */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;  /* centers all inputs */
+}
+
+input, select, textarea {
+    width: 80%;               /* fills most of box */
+    padding: 10px;
+    margin: 8px 0;            /* spacing between fields */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+/* Textarea resizing */
+textarea {
+    resize: vertical;
+}
+
+/* Submit button */
+button {
+    width: 50%;
+    padding: 12px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 6px;
+    background-color: #fa39ca;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #ea1afd;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+    .form-box {
+        width: 90%;
+        padding: 20px;
+    }
+
+    input, select, textarea, button {
+        width: 90%;
+    }
+}
