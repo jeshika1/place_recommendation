@@ -6,3 +6,5 @@ Maps API
 placs API
 Filters+sorting
 HTMl/CSS for frontend
+
+just completed the frontend will work on maps and places APIs soon
